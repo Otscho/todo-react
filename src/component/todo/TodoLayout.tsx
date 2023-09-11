@@ -5,7 +5,6 @@ import React from "react";
 
 const TodoLayout: React.FC = () => {
     const theme = useTheme()
-
     return (
         useMediaQuery(theme.breakpoints.up('sm'))
             ? <Paper>
@@ -20,12 +19,6 @@ const TodoLayout: React.FC = () => {
                     <Grid item xs={12}> <TodoList/></Grid>
                 </Grid>
             </Paper>
-
-        // <TodoList />
-        // <TodoView />
-
-        // <TodView />
-        // <TodoList />
     )
 }
 

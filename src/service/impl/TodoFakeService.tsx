@@ -13,7 +13,6 @@ class FakeTodoService implements TodoService {
 
     add(todo: Todo): Promise<Todo> {
         todo.id = nanoid() // get unique id
-        this._todos.push(todo)
         return new Promise((ok, error)=>{
             setTimeout(()=>{ok({...todo})}, 100) // copy
         })

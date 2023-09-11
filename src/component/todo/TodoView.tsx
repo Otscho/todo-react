@@ -1,16 +1,21 @@
-import React from 'react';
-import {useStoreState} from "../../store/StoreModel";
-import NewTodo from "./NewTodo";
-import EditTodo from "./EditTodo";
+import { useStoreState, useStoreActions} from "../../store/StoreModel"
+import EditTodo from "./EditTodo"
+import NewTodo from "./NewTodo"
+import React from "react";
 
-const TodoView = () => {
+const TodoView: React.FC = () => {
     const selectedTodo =
         useStoreState((state)=>state.todoModel.selectedTodo)
+    const updateTodoFkt =
+        useStoreActions((actions)=>actions.todoModel.updateTodo)
+    const newTodoFkt =
+        useStoreActions((actions)=>actions.todoModel.addTodo)
+
     return (
         selectedTodo == null
-        ?<NewTodo />
-        :<EditTodo />
+            ? <NewTodo submitFkt = {newTodoFkt}/>
+            : <EditTodo todo = {selectedTodo} submitFkt = {updateTodoFkt}/>
     )
-};
+}
 
-export default TodoView;
+export default TodoView

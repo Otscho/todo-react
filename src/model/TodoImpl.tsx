@@ -4,9 +4,9 @@ class TodoImpl implements Todo {
     id: number | string | null;
     title: string;
 
-    constructor() {
+    constructor(title: string) {
         this.id = null
-        this.title = "title"
+        this.title = title
         this.completed = false
     }
 }

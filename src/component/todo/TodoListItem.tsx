@@ -15,13 +15,13 @@ const TodoListItem: React.FC<TodoListItemProps> = ({todo}) => {
     const deleteTodo =
         useStoreActions((actions)=>actions.todoModel.delete)
 
-    const selectTodoFuction =
+    const selectTodoFunction =
         useStoreActions((actions)=>actions.todoModel.selectTodo)
     const selectedTodo =
         useStoreState((state)=>state.todoModel.selectedTodo)
     return (
         <ListItem key={todo.id}
-                  onClick={()=>{selectTodoFuction(todo)}}
+                  onClick={()=>{selectTodoFunction(todo)}}
                   selected={todo === selectedTodo}
         >
             <ListItemIcon>
